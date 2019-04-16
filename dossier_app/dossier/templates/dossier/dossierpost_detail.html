@@ -1,0 +1,55 @@
+{% extends "dossier/base.html" %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="media-body box-content-section">
+                <small class="text-muted ml-2">
+                  Date Posted: {{ object.date_posted|date:"F d, Y" }}
+                  ||
+                  Last Updated: {{ object.last_modified|date:"F d, Y P e" }}
+                </small>
+            <article>
+              <h2 class="pt-4 ml-1">{{ object.name }}</h2>
+              <p class="pt-4 ml-2" >Hobbies: {{ object.hobbies }}</p>
+              <p class="pt-2 ml-2" >Appearance: {{ object.appearance }}</p>
+              <p class="pt-2 ml-2" >Discussions: {{ object.discussions }}</p>
+            </article>
+        </div>
+        <section class="container text-right py-10">
+          <a class="btn btn-dark btn-sm mt-1 mb-1" href="{% url 'dossier-post-update' object.id %}">Update</a>
+          <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'dossier-post-delete' object.id %}">Delete</a>
+        </section>
+
+
+
+    {% else %}
+
+    {% endif %}
+
+{% endblock content %}
+
+
+{% block buttons %}
+{% if user.is_authenticated %}
+
+          <div class="col">
+            <a class="footer_href" href="{% url 'blog-post-create' %}">
+              New Writing
+            </a>
+          </div>
+            <div class="col">
+              <a class="footer_href" href="{% url 'dossier-post-create' %}">
+                New Dossier
+              </a>
+            </div>
+
+            <div class="col">
+              <a class="footer_href" href="{% url 'codingIdeas-post-create' %}">
+                New Code Idea
+              </a>
+            </div>
+
+{% else %}
+
+{% endif %}
+
+{% endblock buttons %}

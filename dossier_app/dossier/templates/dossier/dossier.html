@@ -1,0 +1,59 @@
+{% extends "dossier/base.html" %}
+
+
+{% block search_bar %}
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name='search'
+            value="">
+            <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+
+{% endblock %}
+
+{% block content %}
+
+      <section class="pt-6">
+              <div class="jumbotron">
+                  <h1 class="display-3 text-right">Dossier</h1>
+              </div>
+
+            {% for post in posts %}
+                <h2 class="box-content-section">
+                  <a class="stylized_href" href="{% url 'dossier-post-detail' post.id %}">
+                    {{ post.name }}
+                  </a>
+                </h2>
+              {% endfor %}
+
+    </section>
+{% endblock content %}
+
+
+
+{% block buttons %}
+
+
+          <div class="col">
+            <a class="footer_href" href="{% url 'blog-post-create' %}">
+              New Writing
+            </a>
+          </div>
+            <div class="col">
+              <a class="footer_href" href="{% url 'dossier-post-create' %}">
+                New Dossier
+              </a>
+            </div>
+            <div class="col">
+              <a class="footer_href" href="{% url 'codingIdeas-post-create' %}">
+                New Code
+              </a>
+            </div>
+
+{% endblock buttons %}

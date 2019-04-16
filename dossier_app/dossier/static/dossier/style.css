@@ -1,0 +1,102 @@
+
+body{
+background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+background-position: right top;
+background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #373737;
+}
+
+
+div.padding {
+  width: 500px;
+}
+
+
+ul {
+  margin: 0;
+}
+
+
+.navbar-nav li{
+ line-height: 10px;
+}
+
+
+.bg-nav-color {
+  background-color: rgba(55,55,55, 0.75);
+}
+
+.footer-nav-color{
+background-color: rgba(55,55,55, 0.75);
+}
+
+a.navbar_header_items{
+  color: white;
+  letter-spacing: 3px;
+  line-heght:0.8;
+
+}
+
+.brand-lazer{
+  color: white;
+}
+
+.jumbotron{
+  background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+}
+
+
+.site-header .navbar-nav .nav-link {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.submit_button{
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+.box-content-section  {
+  background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.box-header-section  {
+  background-color: rgba(10, 10, 10, 0.15);
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+a.footer_href{
+  color: black;
+  letter-spacing: 3px;
+  line-heght:0.8;
+}
+
+a.footer_href:hover{
+  color: #171717;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.stylized_href {
+  color: #444444;
+}
+
+a.stylized_href:hover {
+  color: #171717;
+  text-decoration: none;
+}

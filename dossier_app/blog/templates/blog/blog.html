@@ -1,0 +1,61 @@
+{% extends "dossier/base.html" %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <section>
+      <div class="jumbotron">
+          <h1 class="display-3 text-left">Writings and Ideas</h1>
+      </div>
+    </section>
+
+      {% for post in posts %}
+      <article class="box-content-section">
+          <h2 class="">
+            <a class="stylized_href" href="{% url 'blog-post-detail' post.id %}">
+              {{ post.title }}
+            </a>
+          </h2>
+
+              {% if post.body|length > 450 %}
+                  <p class="mb-4">
+                      {{post.body|truncatechars:450}}
+                      <a class="stylized_href" href="{% url 'blog-post-detail' post.id %}">Read more...</a>
+                  </p>
+              {% else %}
+                  <p class="mb-4">{{ post.body|safe|linebreaks }}</p>
+              {% endif %}
+       </article>
+      {% endfor %}
+  {% else %}
+
+  {% endif %}
+{% endblock content %}
+
+
+{% block buttons %}
+
+{% if user.is_authenticated %}
+
+        <div class="col">
+          <a class="footer_href" href="{% url 'blog-post-create' %}">
+            New Writing
+          </a>
+        </div>
+          <div class="col">
+            <a class="footer_href" href="{% url 'dossier-post-create' %}">
+              New Dossier
+            </a>
+          </div>
+
+          <div class="col">
+            <a class="footer_href" href="{% url 'codingIdeas-post-create' %}">
+              New Code Idea
+            </a>
+          </div>
+
+{% else %}
+
+{% endif %}
+
+{% endblock buttons %}

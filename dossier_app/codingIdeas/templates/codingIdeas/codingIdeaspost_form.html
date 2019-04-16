@@ -1,0 +1,42 @@
+{% extends "dossier/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section box-content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom text-center mb-4">Jot your thoughts</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group pt-2">
+                <button class="btn btn-outline submit_button btn-block" type="submit">
+                  <i class="fi-xnsuxx-hard-floppy"></i>
+                </button>
+            </div>
+        </form>
+        <hr>
+    </div>
+{% endblock content %}
+
+
+{% block buttons %}
+        {% if user.is_authenticated %}
+        <div class="col">
+          <a class="footer_href" href="{% url 'blog' %}">
+            /Writing
+          </a>
+        </div>
+          <div class="col">
+            <a class="footer_href" href="{% url 'dossier' %}">
+              /Dossier
+            </a>
+          </div>
+
+          <div class="col">
+            <a class="footer_href" href="{% url 'codingIdeas' %}">
+              /Code Idea
+            </a>
+          </div>
+        {% else %}
+        {% endif %}
+{% endblock buttons %}
